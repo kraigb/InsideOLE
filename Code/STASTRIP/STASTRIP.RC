@@ -1,0 +1,21 @@
+/*
+ * STASTRIP.RC
+ * StatStrip Version 1.00
+ *
+ * Resources for the StatStrip
+ *
+ * Copyright (c)1993-1994 Microsoft Corporation, All Rights Reserved
+ *
+ * Kraig Brockschmidt, Software Design Engineer
+ * Microsoft Systems Developer Relations
+ *
+ * Internet  :  kraigb@microsoft.com
+ * Compuserve:  >INTERNET:kraigb@microsoft.com
+ */
+
+
+#include <windows.h>
+#include "statint.h"
+
+
+rcinclude stastrip.rcv

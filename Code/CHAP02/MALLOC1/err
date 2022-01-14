@@ -1,0 +1,28 @@
+Building "C_IMalloc_Client_Chapter_2" 
+++++++++++
+Compiling malloc1.c
+malloc1.c
+c:\inole\inc\inole.h(240) : error C2061: syntax error : identifier 'IPersistStreamInit'
+c:\inole\inc\inole.h(242) : error C2059: syntax error : '}'
+c:\inole\inc\inole.h(244) : error C2059: syntax error : '}'
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(54) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_STANDA'
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(76) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_SECURE'
+++++++++++
+Linking malloc1.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:malloc1.exe 
+-machine:IX86 
+malloc1.obj 
+malloc1.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+bttncur.lib gizmobar.lib stastrip.lib classMDI.lib 
+LINK : fatal error LNK1104: cannot open file 'malloc1.obj'

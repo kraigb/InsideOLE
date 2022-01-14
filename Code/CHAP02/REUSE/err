@@ -1,0 +1,47 @@
+Building "COM_Reusability_Demo_Chapter_2" 
+++++++++++
+Compiling reuse.cpp
+reuse.cpp
+c:\inole\inc\inole.h(240) : error C2143: syntax error : missing ';' before '*'
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+++++++++++
+Compiling animal.cpp
+animal.cpp
+c:\inole\inc\inole.h(240) : error C2143: syntax error : missing ';' before '*'
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+++++++++++
+Compiling koalac.cpp
+koalac.cpp
+c:\inole\inc\inole.h(240) : error C2143: syntax error : missing ';' before '*'
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+++++++++++
+Compiling koalaa.cpp
+koalaa.cpp
+c:\inole\inc\inole.h(240) : error C2143: syntax error : missing ';' before '*'
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(54) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_STANDA'
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(76) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_SECURE'
+++++++++++
+Linking reuse.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:reuse.exe 
+-machine:IX86 
+reuse.obj animal.obj 
+koalac.obj koalaa.obj 
+reuse.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+LINK : fatal error LNK1104: cannot open file 'reuse.obj'

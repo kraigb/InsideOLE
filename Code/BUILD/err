@@ -1,0 +1,625 @@
+Error Log 
+****************************************** 
+ 
+Building "Buttons&Cursors_DLL" 
+++++++++++
+Compiling bttncur.c
+bttncur.c
+++++++++++
+Compiling cursors.c
+cursors.c
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking bttncur.dll
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug /DLL -debugtype:cv -verbose:lib 
+-entry:LibMain32 
+-def:win32.def 
+-out:bttncur.dll 
+-machine:IX86 
+bttncur.obj cursors.obj 
+bttncur.res 
+kernel32.lib user32.lib gdi32.lib 
+kernel32.lib user32.lib gdi32.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+
+Finished searching libraries
+   Creating library bttncur.lib and object bttncur.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+
+Finished searching libraries
+ 
+****************************************** 
+ 
+Building "Gizmobar_DLL" 
+++++++++++
+Compiling gizmobar.c
+gizmobar.c
+++++++++++
+Compiling init.c
+init.c
+++++++++++
+Compiling api.c
+api.c
+++++++++++
+Compiling paint.c
+paint.c
+++++++++++
+Compiling gizmo.c
+gizmo.c
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking gizmobar.dll
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug /DLL -debugtype:cv -verbose:lib 
+-entry:LibMain32 
+-def:win32.def 
+-out:gizmobar.dll 
+-machine:IX86 
+gizmobar.obj init.obj 
+api.obj paint.obj gizmo.obj 
+gizmobar.res 
+kernel32.lib user32.lib gdi32.lib 
+bttncur.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+
+Finished searching libraries
+   Creating library gizmobar.lib and object gizmobar.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+
+Finished searching libraries
+ 
+****************************************** 
+ 
+Building "Status_Strip_DLL" 
+++++++++++
+Compiling stastrip.c
+stastrip.c
+++++++++++
+Compiling init.c
+init.c
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking stastrip.dll
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug /DLL -debugtype:cv -verbose:lib 
+-entry:LibMain32 
+-def:win32.def 
+-out:stastrip.dll 
+-machine:IX86 
+stastrip.obj init.obj 
+stastrip.res 
+kernel32.lib user32.lib gdi32.lib 
+kernel32.lib user32.lib gdi32.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+
+Finished searching libraries
+   Creating library stastrip.lib and object stastrip.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+
+Finished searching libraries
+ 
+****************************************** 
+ 
+Building MDI CLASSLIB 
+++++++++++
+Compiling cstrtabl.cpp
+cstrtabl.cpp
+++++++++++
+Compiling chourgls.cpp
+chourgls.cpp
+++++++++++
+Compiling cwindow.cpp
+cwindow.cpp
+++++++++++
+Compiling cframe.cpp
+cframe.cpp
+++++++++++
+Compiling framewin.cpp
+framewin.cpp
+++++++++++
+Compiling cclient.cpp
+cclient.cpp
+++++++++++
+Compiling cdocumnt.cpp
+cdocumnt.cpp
+++++++++++
+Compiling docwin.cpp
+docwin.cpp
+++++++++++
+Compiling chatch.cpp
+chatch.cpp
+++++++++++
+Compiling ctoolbar.cpp
+ctoolbar.cpp
+++++++++++
+Compiling cstatlin.cpp
+cstatlin.cpp
+++++++++++
+Creating classMDI.lib
+Microsoft (R) Library Manager Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-out:classMDI.lib 
+*.obj 
+ 
+****************************************** 
+ 
+++++++++++
+Compiling skel.cpp
+skel.cpp
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking skel.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:skel.exe 
+-machine:IX86 
+skel.obj 
+skel.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+bttncur.lib gizmobar.lib stastrip.lib classMDI.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+
+Finished searching libraries
+win32.def(2) : warning LNK4017: DESCRIPTION statement not supported for the target platform; ignored
+win32.def(4) : warning LNK4017: CODE statement not supported for the target platform; ignored
+win32.def(5) : warning LNK4017: DATA statement not supported for the target platform; ignored
+   Creating library skel.lib and object skel.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+
+Finished searching libraries
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+
+Finished searching libraries
+ 
+****************************************** 
+ 
+++++++++++
+Precompiling cosmo.h
+precomp.cpp
+++++++++++
+Compiling cosmo.cpp
+cosmo.cpp
+++++++++++
+Compiling client.cpp
+client.cpp
+++++++++++
+Compiling document.cpp
+document.cpp
+++++++++++
+Compiling polyline.cpp
+polyline.cpp
+++++++++++
+Compiling polywin.cpp
+polywin.cpp
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking cosmo01.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:cosmo01.exe 
+-machine:IX86 
+cosmo.obj client.obj precomp.obj 
+document.obj 
+polyline.obj polywin.obj 
+cosmo.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+bttncur.lib gizmobar.lib stastrip.lib classMDI.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+
+Finished searching libraries
+win32.def(2) : warning LNK4017: DESCRIPTION statement not supported for the target platform; ignored
+win32.def(4) : warning LNK4017: CODE statement not supported for the target platform; ignored
+win32.def(5) : warning LNK4017: DATA statement not supported for the target platform; ignored
+   Creating library cosmo01.lib and object cosmo01.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+
+Finished searching libraries
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+
+Finished searching libraries
+ 
+****************************************** 
+ 
+++++++++++
+Precompiling patron.h
+precomp.cpp
+++++++++++
+Compiling patron.cpp
+patron.cpp
+++++++++++
+Compiling client.cpp
+client.cpp
+++++++++++
+Compiling document.cpp
+document.cpp
+++++++++++
+Compiling print.cpp
+print.cpp
+++++++++++
+Compiling pages.cpp
+pages.cpp
+++++++++++
+Compiling pagewin.cpp
+pagewin.cpp
+++++++++++
+Compiling page.cpp
+page.cpp
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking patron01.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:patron01.exe 
+-machine:IX86 
+patron.obj client.obj precomp.obj 
+document.obj print.obj 
+pages.obj pagewin.obj page.obj 
+patron.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+bttncur.lib gizmobar.lib stastrip.lib classMDI.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+
+Finished searching libraries
+win32.def(2) : warning LNK4017: DESCRIPTION statement not supported for the target platform; ignored
+win32.def(4) : warning LNK4017: CODE statement not supported for the target platform; ignored
+win32.def(5) : warning LNK4017: DATA statement not supported for the target platform; ignored
+   Creating library patron01.lib and object patron01.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+
+Finished searching libraries
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching c:\inole\lib\gizmobar.lib:
+    Searching c:\inole\lib\stastrip.lib:
+    Searching c:\inole\lib\classMDI.lib:
+
+Finished searching libraries
+ 
+****************************************** 
+ 
+Building "C_IMalloc_Client_Chapter_2" 
+++++++++++
+Compiling malloc1.c
+malloc1.c
+c:\inole\inc\inole.h(240) : error C2061: syntax error : identifier 'IPersistStreamInit'
+c:\inole\inc\inole.h(242) : error C2059: syntax error : '}'
+c:\inole\inc\inole.h(244) : error C2059: syntax error : '}'
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(54) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_STANDA'
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(76) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_SECURE'
+++++++++++
+Linking malloc1.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:malloc1.exe 
+-machine:IX86 
+malloc1.obj 
+malloc1.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+bttncur.lib gizmobar.lib stastrip.lib classMDI.lib 
+LINK : fatal error LNK1104: cannot open file 'malloc1.obj'
+ 
+****************************************** 
+ 

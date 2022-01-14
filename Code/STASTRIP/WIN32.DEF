@@ -1,0 +1,8 @@
+LIBRARY     STASTRIP
+
+EXPORTS
+            StatStripWndProc        @2
+
+            StatStripMessageMap     @3
+            StatStripMenuSelect     @4
+            StatStripMessageDisplay @5

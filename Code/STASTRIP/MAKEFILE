@@ -1,0 +1,66 @@
+#
+# MAKEFILE
+# Status Strip
+# NOTICE:  This will be going away in the final Inside OLE 2nd Edition.
+#
+# Copyright (c)1992-1995 Microsoft Corporation, All Rights Reserved
+#
+# Kraig Brockschmidt, Microsoft
+# Internet  :  kraigb@microsoft.com
+# Compuserve:  >INTERNET:kraigb@microsoft.com
+#
+
+#Add '#' to the next line for "noisy" operation
+!CMDSWITCHES +s
+
+
+TARGET  = stastrip
+OUTFILE = stastrip.dll
+
+DLL       = 1
+NODOC     = 1
+NOPRECOMP = 1
+
+goal:  $(TARGET).lib
+
+INCLS    = $(TARGET).h statint.h
+
+OBJS1    = $(TARGET).obj init.obj
+OBJS2    = ""
+OBJS3    = ""
+OBJS4    = ""
+OBJS5    = ""
+OBJS6    = ""
+OBJS     = $(OBJS1)
+
+RCFILES  = $(TARGET).rcv
+
+!include "..\\inole-a.mak"
+
+#Override some of the things from inole-a.mak
+#such as other library dependencies that we don't want
+
+!ifndef WIN16
+CL32    = /GS-
+LIBS32  = kernel32.lib user32.lib gdi32.lib
+!else
+CL32    = -G2w -AL /GS-
+LIBS32  = libw ldllcew
+!endif
+
+LIBS    = $(LIBS32)
+
+!include "..\\inole-b.mak"
+
+#This step does nothing for Win32
+$(TARGET).lib: $(TARGET).dll
+!ifdef WIN16
+    implib $(TARGET).lib $(DEFFILE)
+!endif
+
+
+##### Dependencies #####
+
+$(TARGET).obj  : $(TARGET).c    $(INCLS)
+init.obj       : init.c         $(INCLS)
+$(TARGET).res  : $(TARGET).rc   $(INCLS) $(RCFILES)

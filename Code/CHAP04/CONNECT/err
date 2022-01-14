@@ -1,0 +1,106 @@
+Building "Connectable_Object_Demo_Chapter_2" 
+++++++++++
+Precompiling connect.h
+precomp.cpp
+WARNING: your code should #include olectl.h instead of olectlid.h
+++++++++++
+Compiling connect.cpp
+connect.cpp
+++++++++++
+Compiling sink.cpp
+sink.cpp
+++++++++++
+Compiling object.cpp
+object.cpp
+++++++++++
+Compiling connpt.cpp
+connpt.cpp
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(54) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_STANDA'
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\string.h(76) : warning RC4011: identifier truncated to '_CRT_SECURE_CPP_OVERLOAD_SECURE'
+++++++++++
+Linking connect.exe
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug -debugtype:cv -verbose:lib 
+-def:win32.def 
+-out:connect.exe 
+-machine:IX86 
+connect.obj sink.obj 
+object.obj connpt.obj 
+precomp.obj 
+connect.res 
+kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib ole32.lib oleaut32.lib uuid.lib 
+winmm.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\winmm.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\winmm.lib:
+
+Finished searching libraries
+win32.def(2) : warning LNK4017: DESCRIPTION statement not supported for the target platform; ignored
+win32.def(4) : warning LNK4017: CODE statement not supported for the target platform; ignored
+win32.def(5) : warning LNK4017: DATA statement not supported for the target platform; ignored
+   Creating library connect.lib and object connect.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\winmm.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+
+Finished searching libraries
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\winmm.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\advapi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\ole32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\oleaut32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\winmm.lib:
+
+Finished searching libraries

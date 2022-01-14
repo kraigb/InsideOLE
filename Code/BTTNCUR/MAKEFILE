@@ -1,0 +1,69 @@
+#
+# MAKEFILE
+# Standard Button Images and Cursors DLL Version 1.2
+# NOTICE:  This will be removed in the final Inside OLE 2nd Edition
+#
+# Copyright (c)1992-1995 Microsoft Corporation, All Rights Reserved
+#
+# Kraig Brockschmidt, Microsoft
+# Internet  :  kraigb@microsoft.com
+# Compuserve:  >INTERNET:kraigb@microsoft.com
+#
+
+#Add '#' to the next line for "noisy" operation
+!CMDSWITCHES +s
+
+TARGET  = bttncur
+OUTFILE = bttncur.dll
+
+DLL       = 1
+NODOC     = 1
+NOPRECOMP = 1
+
+goal:  $(TARGET).lib
+
+INCLS    = $(TARGET).h bttncuri.h
+
+OBJS1    = $(TARGET).obj cursors.obj
+OBJS2    = ""
+OBJS3    = ""
+OBJS4    = ""
+OBJS5    = ""
+OBJS6    = ""
+OBJS     = $(OBJS1)
+
+RCFILES1 = $(TARGET).rcv res\harrows.cur res\help.cur res\larrows.cur
+RCFILES2 = res\magnify.cur res\neswarrs.cur res\nodrop.cur res\nwsearrs.cur
+RCFILES3 = res\rarrow.cur res\sarrows.cur res\sizebarh.cur res\sizebarv.cur
+RCFILES4 = res\splith.cur res\splitv.cur res\tabletop.cur res\varrows.cur
+RCFILES5 = res\stdim72.bmp res\stdim96.bmp res\stdim120.bmp
+RCFILES  = $(RCFILES1) $(RCFILES2) $(RCFILES3) $(RCFILES4) $(RCFILES5)
+
+!include "..\\inole-a.mak"
+
+#Override some of the things from inole-a.mak
+#such as other library dependencies that we don't want
+
+!ifndef WIN16
+CL32    = /GS-
+LIBS32  = kernel32.lib user32.lib gdi32.lib
+!else
+CL32    = -G2w -AL
+LIBS32  = libw ldllcew
+!endif
+
+LIBS    = $(LIBS32)
+
+!include "..\\inole-b.mak"
+
+#This step does nothing for Win32
+$(TARGET).lib: $(TARGET).dll
+!ifdef WIN16
+    implib $(TARGET).lib $(DEFFILE)
+!endif
+
+
+##### Dependencies #####
+$(TARGET).obj : $(TARGET).c  $(INCLS)
+cursors.obj   : cursors.c    $(INCLS)
+$(TARGET).res : $(TARGET).rc $(INCLS) $(RCFILES)

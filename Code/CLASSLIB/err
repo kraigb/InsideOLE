@@ -1,0 +1,41 @@
+Building MDI CLASSLIB 
+++++++++++
+Compiling cstrtabl.cpp
+cstrtabl.cpp
+++++++++++
+Compiling chourgls.cpp
+chourgls.cpp
+++++++++++
+Compiling cwindow.cpp
+cwindow.cpp
+++++++++++
+Compiling cframe.cpp
+cframe.cpp
+++++++++++
+Compiling framewin.cpp
+framewin.cpp
+++++++++++
+Compiling cclient.cpp
+cclient.cpp
+++++++++++
+Compiling cdocumnt.cpp
+cdocumnt.cpp
+++++++++++
+Compiling docwin.cpp
+docwin.cpp
+++++++++++
+Compiling chatch.cpp
+chatch.cpp
+++++++++++
+Compiling ctoolbar.cpp
+ctoolbar.cpp
+++++++++++
+Compiling cstatlin.cpp
+cstatlin.cpp
+++++++++++
+Creating classMDI.lib
+Microsoft (R) Library Manager Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-out:classMDI.lib 
+*.obj 

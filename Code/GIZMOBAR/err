@@ -1,0 +1,56 @@
+Building "Gizmobar_DLL" 
+++++++++++
+Compiling gizmobar.c
+gizmobar.c
+++++++++++
+Compiling init.c
+init.c
+++++++++++
+Compiling api.c
+api.c
+++++++++++
+Compiling paint.c
+paint.c
+++++++++++
+Compiling gizmo.c
+gizmo.c
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking gizmobar.dll
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug /DLL -debugtype:cv -verbose:lib 
+-entry:LibMain32 
+-def:win32.def 
+-out:gizmobar.dll 
+-machine:IX86 
+gizmobar.obj init.obj 
+api.obj paint.obj gizmo.obj 
+gizmobar.res 
+kernel32.lib user32.lib gdi32.lib 
+bttncur.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching c:\inole\lib\bttncur.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+
+Finished searching libraries
+   Creating library gizmobar.lib and object gizmobar.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+
+Finished searching libraries

@@ -1,0 +1,9 @@
+Building "C++_IMalloc_Client_Chapter_2" 
+++++++++++
+Compiling malloc2.cpp
+malloc2.cpp
+c:\inole\inc\inole.h(240) : error C2143: syntax error : missing ';' before '*'
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\inole\inc\inole.h(240) : error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+++++++++++
+Compiling Resources

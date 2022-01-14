@@ -1,0 +1,44 @@
+Building "Buttons&Cursors_DLL" 
+++++++++++
+Compiling bttncur.c
+bttncur.c
+++++++++++
+Compiling cursors.c
+cursors.c
+++++++++++
+Compiling Resources
+Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+++++++++++
+Linking bttncur.dll
+Microsoft (R) Incremental Linker Version 10.00.30319.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-debug /DLL -debugtype:cv -verbose:lib 
+-entry:LibMain32 
+-def:win32.def 
+-out:bttncur.dll 
+-machine:IX86 
+bttncur.obj cursors.obj 
+bttncur.res 
+kernel32.lib user32.lib gdi32.lib 
+kernel32.lib user32.lib gdi32.lib 
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\uuid.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\LIBCMT.lib:
+    Searching C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\LIB\OLDNAMES.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\user32.lib:
+
+Finished searching libraries
+   Creating library bttncur.lib and object bttncur.exp
+
+Searching libraries
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\kernel32.lib:
+
+Finished searching libraries
