@@ -1,0 +1,15 @@
+<HTML><HEAD><TITLE>Linking Containers Step by Step</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H2>Linking Containers Step by Step </H2><P>Within the framework of the support for embedded objects that we built in Chapter 17, we can use the following steps to add support for linking to the Patron sample (CHAP20\PATRON):</P>
+<P>Enable links in the Insert Object dialog box.</P>
+<P>Enable linking from clipboard and drag-and-drop operations.</P>
+<P>Distinguish between linked and embedded objects with the Show Objects command.</P>
+<P>Manage a file moniker for the document, call <I>IOleObject::SetMoniker</I>, and partially implement <I>IOleClientSite::GetMoniker</I>.</P>
+<P>Invoke the Links dialog, which involves implementing the <I>IOleUILinkContainer</I> interface, changing link sources, and breaking links intentionally.</P>
+<P>Update links on loading a document.</P>
+<P>After following these six steps, you will have a container ready to link to any source, including the version of Cosmo we'll see in Chapter 21.1</P>
+<P></P>
+
+<TABLE COLS="1" BORDER="0" CELLPADDING="7"><COLGROUP><COL WIDTH="432pt" VALIGN="TOP"></COLGROUP><TBODY><TR><TD VALIGN="TOP"><P><B></B></P></TD></TR><TR><TD VALIGN="TOP"><P>1 These linking features give the container the ability to work with OLE 1 linking servers as well.</P></TD></TR></TBODY></TABLE>
+<P><BR></P></font></body></HTML>

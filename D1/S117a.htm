@@ -1,0 +1,7 @@
+<HTML><HEAD><TITLE>Write a DEF File</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H3>Write a DEF File</H3><P>Because you're going to be compiling and linking MIDL-generated code, you'll have to provide a module definitions file for the linker, which MIDL does not generate itself. Specifically, you need to name the resulting module and export the functions <I>DllGetClassObject</I>,<I> DllCanUnloadNow</I>,<I> </I>and <I>GetProxyDllInfo</I>,<I> </I>as shown here for IANIMAL.DLL:</P>
+<P><BR></P>
+<pre><code>LIBRARY         IANIMAL<BR>DESCRIPTION     'IAnimal Interface Proxy/Stub DLL Chapter 6'<BR><BR>CODE            PRELOAD DISCARDABLE<BR>DATA            PRELOAD SINGLE<BR><BR>EXPORTS<BR>                DllGetClassObject       @2<BR>                DllCanUnloadNow         @3<BR>                GetProxyDllInfo         @4</code></pre>
+<P>You don't actually have to implement these exported functions because RPCRT4.LIB provides them—you need only to export them. But failure to do so will lead to some quite ugly problems that you'd be happier avoiding altogether.</P></font></body></HTML>

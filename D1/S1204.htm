@@ -1,0 +1,15 @@
+<HTML><HEAD><TITLE>Paste Special and a Functional Patron</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H2>Paste Special and a Functional Patron</H2><P>With an understanding of the OLE Clipboard, we can bring it together with the techniques for using the data cache we saw in Chapter 11 and make Patron (CHAP12\PATRON) do something useful. The changes are extensive, so we'll focus on the important elements of the code. Besides adding a number of functions to the <I>CPatronDoc</I>, <I>CPages</I>, and <I>CPage</I> classes, I've added two important source files, TENANT.CPP and PAGEMOUS.CPP. This work primarily supports the pasting of metafiles and bitmaps into a page as tenants, which the data cache will draw and serialize for us. The result is that Patron finally displays something visible, as shown in Figure 12-2 on the following page. All that's left is for us to provide storage for each tenant, to ensure that each tenant is saved to a file we can reload later, and to provide the ability to copy or cut a tenant back to the clipboard.</P>
+<P>    <img src="f12dd02p.gif"></P>
+<P><B>Figure 12-2.</B></P>
+<P><B>Patron with a number of tenants on a page.</B></P>
+<P>Patron also contains a few user interface components; mouse hit-testing that selects a tenant, a menu item to delete a tenant, and code to provide functional resizing handles on the selected object, as shown in Figure 12-3. (I won't go into much detail about these non-OLE features in Patron. One part of the existing code that will become important for OLE Drag and Drop is a technique for mouse <I>debouncing</I> that we'll see in Chapter 13.)</P>
+<P>    <img src="f12dd03p.gif"></P>
+<P><B>Figure 12-3.</B></P>
+<P><B>Resizing a tenant in Patron.</B></P>
+<P>The other feature of Patron that concerns us here is the Paste Special dialog box. This dialog box allows the end user to selectively paste either a bitmap or a metafile. By default, Patron prefers to paste a metafile rather than a bitmap, but with Paste Special the end user can choose a format. The Paste Special dialog box, as it appears in Figure 12-4, is provided as part of the OLE UI Library and readily expands to support OLE Documents, including the Display As Icon check box (disabled for now). If you skipped Chapter 6, read the section called "The OLE UI Library and the Busy Dialog Box" starting on page 316. That section explains the nature of the OLE UI Library, and you may want to glance through that information again for review in any case.</P>
+<P>    <img src="f12dd04p.gif"></P>
+<P><B>Figure 12-4.</B></P>
+<P><B>The Paste Special dialog box in Patron.</B></P></font></body></HTML>

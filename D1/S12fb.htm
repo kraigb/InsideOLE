@@ -1,0 +1,13 @@
+<HTML><HEAD><TITLE>In-Place Container Step by Step: Patron</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H2>In-Place Container Step by Step: Patron</H2><P>In-place activation is really an extension of embedding, so what we need to do to make a container in-place capable is add UI support to what is already present for embedding. We have a few interfaces to implement and a number of places where we need to add a small amount of code to make everything work smoothly. These are the steps that we'll use to make Patron (CHAP22\PATRON) in-place capable:</P>
+<P>Prepare the container application to handle the effect of creating shared menus, switching toolbars, and handling accelerators while an object is active in place.</P>
+<P>Implement skeletal <I>IOleInPlaceFrame</I>, <I>IOleInPlaceUIWindow</I>, and <I>IOleInPlaceSite</I> interfaces.</P>
+<P>Activate and deactivate the object.</P>
+<P>Contribute the container's half of the shared menu.</P>
+<P>Negotiate tool space and handle window repositioning when an object requests space.</P>
+<P>Give the object a chance to process accelerators; be sure to disable all accelerators that are not applicable during an in-place session.</P>
+<P>Handle all the remaining events—switching between document windows, resizing a frame or document window, scrolling a document, and an assortment of other small features. These are the little tweaks that make everything work.</P>
+<P>This last step is rather nebulous. Many bits and pieces of work are necessary to round out an in-place container. This is another reason why the Microsoft Foundation Classes (MFC) are a powerful tool for working with OLE Documents—the framework includes many of these little considerations by default, leaving you to implement only those parts that need customization.</P>
+<P>The sections that follow include a number of sidebars noting experiences I had that caused me to regularly beat my head against a table, wall, or other sufficiently hard surface while I was developing this chapter's Patron sample. Not all of them are about bad stuff, however. Some are merely comments about tricky parts of the implementation. I hope they can prevent you from developing the same sort of flat spot as I inflicted on my forehead.</P></font></body></HTML>

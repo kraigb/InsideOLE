@@ -1,0 +1,23 @@
+<HTML><HEAD><TITLE>Registry Entries</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H3>Registry Entries</H3><P>Every component class requires a unique CLSID to identify it. The registry entries under that CLSID identify the server module for that component. In Chapter 2, we saw the basic use of the CLSID in the registry, which took the following form:</P>
+<P><BR></P>
+<pre><code>\<BR>    CLSID<BR>        {42754580-16b7-11ce-80eb-00aa003d7352} = Acme Component 3.0</code></pre>
+<P>The <I>ProgID</I> and <I>VersionIndependentProgID</I> entries are omitted here because they are not particularly relevant to this discussion. In any case, COM requires that you include at least one of the following entries as an additional subkey of the hexadecimal CLSID string:</P>
+<P><img src="16bit.gif"></P>
+<UL><LI>In-process servers: <I>InprocServer32</I><I>=</I>&lt;<I>path to DLL</I>&gt;</LI><LI>Object handlers: <I>InprocHandler32</I><I>=</I>&lt;<I>path to DLL</I>&gt;</LI><LI>Local servers: <I>LocalServer32</I><I>=</I>&lt;<I>path to EXE</I>&gt;</LI></UL><P>The value of each entry must be the full pathnames of the DLL or EXE in question; this way, you do not depend on those modules being in the system path. COM enforces this requirement and will fail to load a server if the full pathname is not listed. For that reason, a component's installation program usually updates these values after the exact installation location is known. In any case, any single server DLL or EXE can support as many CLSIDs as it wants because COM provides the CLSID to a class factory when asking it to instantiate an object. This means that the same DLL or EXE pathname can appear under as many CLSIDs in the registry as desired.</P>
+<P>These keys can appear in any combination if multiple server modules for the same CLSID exist. When multiple server entries exist, COM will attempt to use them in the order <I>InprocServer32</I>, <I>InprocHandler32</I>, <I>LocalServer32</I> unless the client has specified a restriction to only in-process servers or only local servers. For a number of reasons, you might choose to supply both an in-process server and a local server. The most important of these is that a client can then choose which server it would like to use. An in-process server is faster, but if that server crashes it can potentially take down the entire client process. On the other hand, a local server, having its own process space, can crash without any ill effect on the client, thereby making the relationship more secure and robust, but slower.</P>
+<P>A useful combination is to register a handler together with a local server. <I>InprocHandler32</I> appearing by itself implies that only a partial implementation of a component is available. In many situations, this is perfectly reasonable because partial implementation provides some basic capabilities to clients without requiring the full server. We'll see an example of this in OLE Documents later, in Chapter 19. One use for this combination is to freely distribute a handler as a sort of crippled component that encourages customers to purchase the full component.</P>
+
+<TABLE COLS="1" BORDER="0" CELLPADDING="7"><COLGROUP><COL WIDTH="432pt" VALIGN="TOP"></COLGROUP><TBODY><TR><TD VALIGN="TOP"><P><B></B></P></TD></TR></TBODY></TABLE>
+<P><BR></P><H4><A NAME="sec0"></A>A Major Waste of Time</H4><P>If you use REG files to create registry entries, be very, very careful about extra spaces preceding pathnames in that file: extra spaces make different values. In other words, an entry such as:</P>
+<P><BR></P>
+<pre><code>\...\...\InprocServer32 = c:\inole\chap05\dkoala1\dkoala1.dll</code></pre>
+<P>is different from:</P>
+<P><BR></P>
+<pre><code>\...\...\InprocServer32 =  c:\inole\chap05\dkoala1\dkoala1.dll</code></pre>
+<P>where an extra space precedes "c:\inole…" This is the sort of bug you can stare at for hours, and your brain will simply refuse to see it.</P>
+
+<TABLE COLS="1" BORDER="0" CELLPADDING="7"><COLGROUP><COL WIDTH="432pt" VALIGN="TOP"></COLGROUP><TBODY><TR><TD VALIGN="TOP"><P><B></B></P></TD></TR></TBODY></TABLE>
+<P><BR></P></font></body></HTML>

@@ -1,0 +1,9 @@
+<HTML><HEAD><TITLE>COM/OLE Task Requirements</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H3>COM/OLE Task Requirements</H3><P>Any and all applications (EXEs) that plan to use<I> </I>or implement components must ensure that the COM/OLE DLLs are properly initialized in the process before attempting to use almost any function in those libraries. Only a few scattered functions can be called before initialization is complete. A component that runs from a DLL need not be concerned with any of these requirements because they apply only to modules that define a task—EXEs.</P>
+<P><img src="16bit.gif"></P>
+<P>For 32-bit components, there are two initialization steps. Absolutely all tasks (such as all the sample applications in this book that compile EXEs) must do the following:</P>
+<P>During startup, call <I>CoInitialize</I> or <I>OleInitialize</I>.</P>
+<P>During shutdown, call <I>CoUninitialize</I> or <I>OleUninitialize</I> if and only if step 1 succeeded.</P>
+<P>The <I>Co</I>* functions control your access to COM functions. If you use API functions or interfaces related to any type library, the clipboard, drag and drop, OLE Documents, OLE Automation, or OLE Controls, you must use the <I>Ole</I>* functions instead of their <I>Co</I>* counterparts. The <I>Ole</I>* versions perform a few more specific operations and call the <I>Co</I>* versions. For the most part, it is safest to simply call <I>OleInitialize</I> and forget it.</P></font></body></HTML>

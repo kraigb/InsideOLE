@@ -1,0 +1,11 @@
+<HTML><HEAD><TITLE>A Simple Link Source for Content Objects: Cosmo</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H2>A Simple Link Source for Content Objects: Cosmo</H2><P>As described earlier, this chapter's version of Cosmo supports linking through a single File moniker, so the content object to which a container can link is an entire figure that makes up a single file. In this simple case, the changes required to support linking are not that extensive, as the following steps indicate:</P>
+<P>When opening a file, create a file moniker and register it with the running object table. Remember to revoke the moniker from the table when closing the document. We saw how to do this in Chapter 9.</P>
+<P>Re-create and reregister the file moniker when the document is renamed. This also means that you need to send the <I>OnRename</I> notification to any advise sinks obtained through <I>IOleObject::Advise</I>.</P>
+<P>Call <I>IRunningObjectTable::NoteChangeTime</I> when the object is modified.</P>
+<P>Include the CFSTR_LINKSOURCE and CFSTR_LINKSRCDESCRIPTOR formats when copying<I> </I>data to the clipboard or through drag and drop. Do not provide these formats for a clipboard Cut operation because cutting removes the data that would be linked to in the first place.</P>
+<P>Implement moniker binding support by implementing <I>IPersistFile</I> (as we already know from Chapter 9). <I>IPersistFile::QueryInterface </I>must return any of the other object's interface pointers. Note that file moniker binding requires an association between the server's file type and its CLSID, as needed by <I>GetClassFile </I>(also described in Chapter 9). In addition, we do not change the server's user interface when activating a linked object in <I>IOleObject::DoVerb</I>.</P>
+<P>Implement <I>IOleObject::SetMoniker</I> and <I>IOleObject::GetMoniker</I>, and remove OLEMISC_CANTLINKINSIDE.</P>
+<P>The following sections look at these steps more closely.</P></font></body></HTML>

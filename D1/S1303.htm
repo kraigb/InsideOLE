@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Mix-a-Menu: Shaken, Not Stirred</title>
+<style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD>
+
+<BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2">
+
+<H3>Mix-a-Menu: Shaken, Not Stirred</h3>
+
+<P>Now that we can activate and deactivate an object,
+it's time to start allowing the object to merge its user
+interface with the container's. To handle the shared menu, we
+need to implement the <i>InsertMenus</i>, <i>RemoveMenus</i>, and
+<i>SetMenu</i> members of <i>IOleInPlaceFrame</i>. In addition,
+we need to do a little work now in <i>IOleInPlaceSite::OnUIDeactivate</i>
+to handle menu switches correctly.</p>
+
+<H4><i>IOleInPlaceFrame::InsertMenus</i></h4>
+
+<P>The container has the easy part in creating the
+shared menu&#151;it gets to stuff an empty<i> </i>menu with its
+own items whenever the object calls <i>IOleInPlaceFrame::InsertMenus.</i>
+(The poor object has to work with a partially populated menu.)
+Patron's implementation (PATRON.CPP) copies menu handles from its
+normal top-level menu for the File, the Container, and the Window
+groups and adds those items to the shared menu by calling the
+Windows API function <i>InsertMenu</i>. (Windows has no problem
+with multiple top-level menus sharing items.)</p>
+
+<P><br>
+</p>
+
+<pre><code>STDMETHODIMP CPatronFrame::InsertMenus(HMENU hMenu
+    , LPOLEMENUGROUPWIDTHS pMGW)
+    {
+    InsertMenu(hMenu, 0, MF_BYPOSITION &#156; MF_POPUP, (UINT)m_phMenu[0]
+        , PSZ(IDS_FILEMENU));
+    InsertMenu(hMenu, 1, MF_BYPOSITION &#156; MF_POPUP, (UINT)m_phMenu[2]
+        , PSZ(IDS_PAGEMENU));
+
+    pMGW-&gt;width[0]=1;
+    pMGW-&gt;width[2]=1;
+
+   #ifdef MDI
+    InsertMenu(hMenu, 2, MF_BYPOSITION &#156; MF_POPUP
+        , (UINT)m_hMenuWindow, PSZ(IDS_WINDOWMENU));
+
+    pMGW-&gt;width[4]=1;
+   #else
+    pMGW-&gt;width[4]=0;
+   #endif
+
+    return NOERROR;
+    }</code></pre>
+
+<P>Conveniently, all of Patron's pop-up menu handles
+are already stored in the <i>CPatronFrame</i> array <i>m_phMenu</i>.<sup>6</sup>
+Patron uses strings from its stringtable for the item names.
+Because we are working with a clean menu, we can use constants to
+specify the positions of these items. We need to store only the
+width of our groups in the OLEMENUGROUPWIDTHS array.</p>
+
+<H4><i>IOleInPlaceFrame::RemoveMenus</i></h4>
+
+<P>By the time <i>RemoveMenus</i> is called, the object
+has already finished the more tedious work of removing its menus
+from the shared menu. So when we get the menu back at this point,
+all we have to do is remove the items we know we added. The best
+way to implement this function is to walk through the menu,
+removing any pop-up menu handles we recognize:</p>
+
+<P><br>
+</p>
+
+<pre><code>STDMETHODIMP CPatronFrame::RemoveMenus(HMENU hMenu)
+    {
+    int         cItems, i, j;
+    HMENU       hMenuT;
+
+    if (NULL==hMenu)
+        return NOERROR;
+
+    cItems=GetMenuItemCount(hMenu);
+
+    for (i=cItems; i&gt;=0; i--)
+        {
+        hMenuT=GetSubMenu(hMenu, i);
+
+        for (j=0; j&lt;=CMENUS; j++)
+            {
+            if (hMenuT==m_phMenu[j])
+                RemoveMenu(hMenu, i, MF_BYPOSITION);
+            }
+        }
+
+    //The menu should now be empty.
+    return NOERROR;
+    }</code></pre>
+
+<P>This defensive programming practice eliminates the
+possibility that any of our popups remain on this menu after
+we've finished with it, because as soon as we return, the object
+usually calls <i>DestroyMenu</i> on the whole shared menu. If any
+popups still exist, they too are destroyed. This doesn't bode
+well if those popups are also on our normal menu. Because we
+can't ensure that the object cleans up its pop-up menus properly,
+we should be sure we clean up ours.</p>
+
+<H4><i>IOleInPlaceFrame::SetMenu</i></h4>
+
+<P>This frame function is called for either of two
+reasons: to display a shared menu or to tell the container to
+reinstate its original menu. The latter happens during an
+object's UI deactivation. Patron handles this call as follows:</p>
+
+<P><br>
+</p>
+
+<pre><code>STDMETHODIMP CPatronFrame::SetMenu(HMENU hMenu
+    , HOLEMENU hOLEMenu, HWND hWndObj)
+    {
+    HRESULT          hr;
+    PCPatronClient   pCL=(PCPatronClient)m_pCL;
+
+    if (NULL==hMenu &amp;&amp; NULL==hOLEMenu)
+        {
+        m_hWndObj=NULL;
+
+        //Prevent redundant calls, or debug warnings on startup.
+        if (NULL==m_hMenuTop)
+            return NOERROR;
+
+        hMenu=m_hMenuTop;
+        m_hMenuTop=NULL;
+        }
+    else
+        {
+        m_hMenuTop=m_hMenuOrg;
+        m_hWndObj=hWndObj;
+        }
+
+    pCL-&gt;SetMenu(m_hWnd, hMenu, m_hMenuWindow);
+    hr=OleSetMenuDescriptor(hOLEMenu, m_hWnd, hWndObj, NULL, NULL);
+    return hr;
+    }</code></pre>
+
+<P>If you receive a non-NULL menu handle in this
+function, you will also get a non-NULL HOLEMENU, which is merely
+a value you pass through to <i>OleSetMenuDescriptor</i>&#151;this
+will either install or deinstall OLE's menu filtering, depending
+on whether a shared menu is present. OLE will send messages for
+the object's menus to the <i>hWndObj</i> window.</p>
+
+<P>If <i>hMenu</i> and <i>hOLEMenu</i> are NULL, you
+should reinstall your normal menu. In the preceding code, Patron
+has its original top-level menu in <i>m_hMenuOrg</i> and saves
+the current top-level menu in <i>m_hMenuTop</i>. If we are
+reinstating the original menu, we set the argument <i>hMenu </i>to
+<i>m_hMenuTop</i>. Then, regardless of which menu we display, <i>CPatronClient::SetMenu</i>
+will make it visible (through the Windows API functions <i>SetMenu
+</i>and <i>DrawMenuBar</i>).</p>
+
+<H4><i>IOleInPlaceSite::OnUIDeactivate</i></h4>
+
+<P>The last thing to do for menu handling is to
+implement part of <i>IOleInPlaceSite::OnUIDeactivate</i>. This
+function has to reinstate the container's original menu as part
+of the deactivation process<i>. </i>Any shared menu has already
+been disassembled by this time. The reason we reinstate the menu
+ourselves is that not every object will call <i>IOleInPlaceFrame::SetMenu</i>.<sup>7</sup>
+In Patron, <i>IOleInPlaceSite::OnUIDeactivate</i> calls an
+internal function, <i>CPatronFrame::ReinstateUI</i>,<i> </i>which
+calls another internal function, <i>CPatronFrame::ShowUIAndTools</i>.
+Among other things, this function calls our own <i>CPatronFrame::SetMenu(NULL,
+NULL, NULL)</i>, the interface member itself.</p>
+
+<P>Once you have completed this implementation, test
+your shared menu with the object, activating and deactivating a
+few times to be sure things work correctly. (See the following
+sidebar.) If you experience problems with menu placement or
+command routing, check your <i>IOleInPlaceFrame::InsertMenus </i>code
+and be sure that you're filling OLEMENUGROUPWIDTHS correctly.</p>
+
+<P>&nbsp;</p>
+
+<H5>EXPERIENCE: Menu Destruction&#151;Just Do It
+(Right)</h5>
+
+<P>When developing Patron and Cosmo for this chapter
+and for Chapter 23, I had a really weird problem. The shared menu
+displayed in the first activation was perfect. On the second
+activation, however, the top-level menu appeared fine but no
+drop-down portions of the menu appeared. Hmmm. On the third
+activation, I got a bunch of vertically cascaded menu items on
+the top-level menu instead of the usual horizontal menu bar! What
+was going on? This was a real head-banger. I tried all sorts of
+combinations, but the problem was actually in the object's
+(Cosmo's) menu destruction code, in which Cosmo was not removing
+one of its own menu items properly.<sup>8</sup> When Cosmo called
+<i>DestroyMenu </i>to clean up the shared menu, it was destroying
+one of its own popups. Now the menu had an invalid handle in it
+that was still used to create the shared menu the next time
+around. Invalid menu handles cause all sorts of neat problems. If
+you encounter menu weirdness while writing a container program,
+try modifying your <i>RemoveMenus</i> function to remove all
+items on the menu, regardless of their origin. If that fixes it,
+the menu is not being cleaned up properly. If your container is
+removing its menus properly, the problem is most likely in the
+object's code. This is especially likely when you're developing
+containers and objects simultaneously! Otherwise, I hope you have
+a phone number for the object's lead developer!</p>
+
+<table border="0" cellpadding="7" cols="1">
+    <tr>
+        <td valign="top">6 Patron uses <i>m_phMenu</i> in
+        processing WM<i>_</i>INITMENUPOPUP messages for enabling
+        and disabling menu items. See <i>CPatronFrame::UpdateMenus
+        </i>(in PATRON.CPP). That function works without a hitch
+        even with a shared menu.</td>
+    </tr>
+    <tr>
+        <td valign="top">7 Chapter 23 recommends that objects do
+        make this call.</td>
+    </tr>
+    <tr>
+        <td valign="top">8 The problem turned out to be a
+        constant, CMENUS, in Cosmo's RESOURCE.H file, which was
+        incorrectly compiled assuming SDI for an MDI version of
+        Cosmo. The bug was in the make file, of all places, which
+        didn't define an MDI symbol properly!</td>
+    </tr>
+</table>
+
+<P>&nbsp;</p>
+</font></body>
+</html>

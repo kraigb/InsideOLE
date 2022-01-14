@@ -1,0 +1,20 @@
+<HTML><HEAD><TITLE>Embedding Containers Step by Step: Patron</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H2>Embedding Containers Step by Step: Patron</H2><P>The remainder of this chapter will follow modifications I made to Patron (CHAP17\PATRON) to make it a container for embedded objects. Patron includes most of those items listed in the previous section, but it does not implement message filtering or the Busy dialog box. Such support is easily added using the code illustrated in Chapter 6.</P>
+<P>Support for embedding requires changes at many levels, much of it having to do with the user interface. If we return to our cookie jar metaphor for a moment, the cookies need to define the user interface only to account for how they look, feel, and taste—very cookie-oriented sorts of stuff. The cookie jar has to define how it opens and how it looks from the outside. In the same manner, the shelf on which the cookie jar rests has its own interface of color and dimension, just as the kitchen and the house have to define their own characteristics. So, in much the same way that most of the user interface in a house is shown in rooms, shelves, and storage devices, most of the user interface in OLE Documents falls on the container.</P>
+<P>Nevertheless, we can reduce implementation to the following sequence of steps; all of the steps except step 1 are elaborated in the following sections. These steps are organized so that you can at least compile after coding the step. In most cases, you will also have something you can run and test. I strongly recommend that you test as much as you can in the early steps because the later ones build on these foundations; testing simplifies the overall task of writing a container.4</P>
+<P>Initialize OLE on startup and uninitialize on shutdown using <I>OleInitialize </I>and <I>OleUninitialize.</I></P>
+<P>Implement <I>IOleClientSite</I> and <I>IAdviseSink</I> on your site object and add variables to manage the content object that will be stored in each site.</P>
+<P>Implement site shading to be used from <I>IOleClientSite::OnShowWindow</I>, and draw the object to a screen or printer.</P>
+<P>Invoke the Insert Object dialog box, and create and initialize objects on return.</P>
+<P>Activate the object on a double click, and add an object verb menu. Also implement a right mouse button pop-up menu.</P>
+<P>Add the ability to paste an object from the clipboard (through the Paste Special command if desired), or accept one through drag and drop.</P>
+<P>Provide new data formats to copy an embedded object back to the clipboard or to source it in a drag-and-drop operation.</P>
+<P>Delete objects from the document, and call <I>CoFreeUnusedLibraries</I>.</P>
+<P>Save and load documents containing embedded objects.</P>
+<P>Invoke the Convert dialog box, and handle the Convert To case, the Activate As case, and the Display As Icon changes. Handling iconic presentations includes working with the cache.</P>
+<P></P>
+
+<TABLE COLS="1" BORDER="0" CELLPADDING="7"><COLGROUP><COL WIDTH="432pt" VALIGN="TOP"></COLGROUP><TBODY><TR><TD VALIGN="TOP"><P><B></B></P></TD></TR><TR><TD VALIGN="TOP"><P>4 There are a few additional concerns for dealing with OLE 1 servers, as documented in the file OLE1.WRI on the companion CD.</P></TD></TR></TBODY></TABLE>
+<P><BR></P></font></body></HTML>

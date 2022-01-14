@@ -1,0 +1,7 @@
+<HTML><HEAD><TITLE>Startup/Shutdown</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H3>Startup/Shutdown</H3><P>Applications using the OLE Clipboard must tell OLE to create a clipboard window on startup and to free any OLE-owned renderings on shutdown. The following steps are handled in Cosmo's <I>CCosmoFrame::Init</I> and <I>CCosmoFrame::~CCosmoFrame </I>functions in COSMO.CPP, respectively:</P>
+<P>At startup, call <I>OleInitialize</I> instead of <I>CoInitialize</I> so that OLE creates its clipboard window.</P>
+<P>During shutdown, first call <I>OleFlushClipboard</I> to free the data object on the clipboard (which happens only if that data object belongs to the application), then destroy the data object, and then call <I>OleUninitial</I><I>ize</I> to destroy OLE's clipboard window.</P>
+<P>At the time of initialization (<I>CCosmoFrame::Init</I>), Cosmo also obtains DataTran's class factory and calls <I>IClassFactory::LockServer</I>, which is reversed in the frame destructor.  This is so later instantiations of DataTran will happen very quickly, improving the performance of clipboard (and later drag-and-drop) operations. This procedure exemplifies an intelligent use of <I>IClassFactory::LockServer</I>.</P></font></body></HTML>

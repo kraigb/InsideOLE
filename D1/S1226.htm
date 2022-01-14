@@ -1,0 +1,20 @@
+<HTML><HEAD><TITLE>The Dispinterface</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H3>The Dispinterface</H3><P>To illustrate how a dispinterface works and how it differs from a vtable interface, let's consider a simple object named Beeper. The object has one property, named <I>Sound</I>, and one method, named <I>Beep</I>. We can implement this object in C++ as follows, sharing this implementation with the rest of the world through OLE:</P>
+<P><BR></P>
+<pre><code>class CBeeper<BR>    {<BR>    public:<BR>        long        m_lSound;    //"Sound" property<BR><BR>    public:<BR>        long        Beep(void);  //"Beep" method<BR>    };</code></pre>
+<P>To share <I>CBeeper </I>through a custom interface, we'd define something such as <I>IBeeper</I>, shown in the following code, and a pointer to this interface would provide access to six member functions, as shown in Figure 14-1.</P>
+<P><BR></P>
+<pre><code>interface IBeeper : IUnknown<BR>    {<BR>    long get_Sound(void);<BR>    void put_Sound(long lSound);<BR>    long Beep(void);<BR>    };</code></pre>
+<P>    <img src="f14dd01.gif"></P>
+<P><B>Figure 14-1.</B></P>
+<P><B>Vtable binding of the <I>IBeeper </I>custom interface to <I>CBeeper </I>functionality.</B></P>
+<P>The limitation of vtable interfaces such as <I>IBeeper </I>is that any client of this object must bind to the interface members on the basis of their locations in the vtable. A line of client source code such as <I>pIBeeper-&gt;Beep() </I>would be compiled into a call instruction to a specific offset from the value in <I>pIBeeper</I>. While this works great for compiled code, it's not as useful from an interpreted language. For the latter, we want to share the object through a late-bound dispinterface (with its own IID) whose properties are expressed directly (shown here in ODL syntax, as described in Chapter 3):</P>
+<P><BR></P>
+<pre><code>dispinterface DIBeeper<BR>    {<BR>    properties:<BR>        [id(0)] long Sound;<BR><BR>    methods:<BR>        [id(1)] long Beep(void);<BR>    };</code></pre>
+<P>The <I>Sound </I>property is assigned a dispID of zero, and the <I>Beep </I>method is assigned a dispID of one. A controller (client) can use these dispIDs at run time to <I>dispatch</I> method calls and property manipulations to the real implementation of the object, as illustrated in Figure 14-2. Instead of accessing object services by calling a member function directly, a controller passes a dispID to some magic member of a dispinterface along with whatever parame-ters are needed for the property or method. That magic member then maps the dispID to the correct piece of implementation.</P>
+<P>    <img src="f14dd02.gif"></P>
+<P><B>Figure 14-2.</B></P>
+<P><B>Binding a dispinterface means mapping the dispID to the implementation.</B></P>
+<P>The object must implement this generic mapping function as part of the early-bound <I>IDispatch </I>interface. Late binding comes from the fact that the actual method or property invoked is determined by arguments passed  to the mapping function in this interface.</P></font></body></HTML>

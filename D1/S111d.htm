@@ -1,0 +1,12 @@
+<HTML><HEAD><TITLE>The Type Library That Jack Built</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H2>The Type Library That Jack Built</H2><P>You may or may not be familiar with one of the hundreds of variations of the children's poem called "The House That Jack Built," which goes something like this:</P>
+<P><I>This is Jack.</I></P>
+<P>This is the house that Jack built.</P>
+<P>This is the kitchen in the house that Jack built.</P>
+<P>This is the wall in the kitchen in the house that Jack built.</P>
+<P>This is the hole in the wall in the kitchen in the house that Jack built.</P>
+<P>This is the mouse that made the hole in the wall in the kitchen in the house that Jack built.</P>
+<P>And so on. The fun of this particular poem for English-speaking children (and some of us adults) is that you can keep adding more and more nouns and prepositional phrases as long as you can remember the whole chain. Our concern for type libraries is similar because we need to describe a library, an interface in that library, a member function in the interface in the library, and an argument of that member function in the interface in the library.</P>
+<P>Fortunately, OLE provides a type library creation service, or component, that you can use to describe such fine details about an object and its interfaces. Whenever you want to create type information for any purpose, you'll use this creation service in some capacity. The hard way to use the service is directly through OLE's implementation of certain interfaces. The easy way is to use an ODL script and let the MKTYPLIB compiler worry about the hard way. The following two sections describe both processes: The first will be more important to readers involved with creating OLE tools. The second will be more important to most of us, who simply want to create type information with as few hassles as possible.</P></font></body></HTML>

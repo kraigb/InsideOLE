@@ -1,0 +1,16 @@
+<HTML><HEAD><TITLE>Source and Target Responsibilities</TITLE><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset= iso-8859-1"><style>@import url(/msdn_ie4.css);</style>
+<link disabled rel="stylesheet" href="/msdn_ie3.css"></HEAD><BODY bgcolor="#FFFFFF">
+<font face="verdana,arial,helvetica" size="2"><FORM NAME="x"><OBJECT CLASSID="clsid:9c2ac687-ceef-11cf-96d9-00a0c903b016" NAME="iv"></OBJECT></FORM>
+<H3>Source and Target Responsibilities</H3><P>From the previous discussion, we can identify specific responsibilities for the source and the target in a drag-and-drop relationship. The source has the following responsibilities:</P>
+<P>Provide a data object with the selected data.</P>
+<P>Provide an object with <I>IDropSource</I>, which need not be instantiated until immediately before calling <I>DoDragDrop</I> and can be deleted after the operation is finished.</P>
+<P>Call <I>DoDragDrop</I> to start the operation, debouncing the mouse if necessary, and control its duration through <I>IDropSource::QueryContinueDrag.</I></P>
+<P>Control the mouse cursor and end-user feedback through <I>IDropSource::GiveFeedback</I>.</P>
+<P>The target's responsibilities consist of the following:</P>
+<P>Implement an object with <I>IDropTarget</I>.</P>
+<P>Associate the object with a target window with <I>RegisterDragDrop</I>, usually when creating the window or making it visible. Disassociate the object when the window is destroyed or hidden with <I>RevokeDragDrop. </I>The object also requires a strong lock, which is not created in <I>RegisterDragDrop</I>,<I> </I>so the target must also call <I>CoLockObjectExternal </I>before registering or revoking the object.</P>
+<P>Check for usable data in <I>IDropTarget::DragEnter </I>and <I>IDropTarget::DragOver </I>and determine the effect (which may be "no drop allowed").</P>
+<P>Provide optional end-user feedback in the target within <I>DragEnter </I>and <I>DragOver</I>. The implementation of this can be done after the other steps have been completed.</P>
+<P>Scroll the target window as appropriate, using the inset region, scroll delay, and scroll rate. This step is also optional and can be postponed until other parts of the implementation are complete.</P>
+<P>Perform a Paste operation in <I>IDropTarget::Drop</I>.</P>
+<P>These two lists define all that sources and targets must do to support OLE Drag and Drop. In many cases, you will need to implement only a subset of these responsibilities.</P></font></body></HTML>
