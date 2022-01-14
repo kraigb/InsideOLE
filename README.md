@@ -1,2 +1,3 @@
-# InsideOLE
-Companion code for Inside OLE 2nd Edition, published in 1995
+# Inside OLE
+
+Companion code for Inside OLE 2nd Edition, by Kraig Brockschmidt, Microsoft Press, 1995
